@@ -1,4 +1,0 @@
-Put your files here:
-- logo.jpg  (REQUIRED)  -> replace with your attached logo
-- favicon.png (optional)
-- og-image.png (optional)
