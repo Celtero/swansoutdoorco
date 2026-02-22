@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.swansoutdoorco.com/sitemap.xml
