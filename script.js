@@ -29,7 +29,7 @@
       const details = String(fd.get("details") || "").trim();
 
       const msgLines = [
-        "Quote request - Swan’s Lawn & Landscaping",
+        "Quote request - Swan's Lawn & Landscaping",
         "",
         `Name: ${name}`,
         `Callback #: ${phone}`,

@@ -1,4 +1,4 @@
-# Swan’s Lawn & Landscaping — SEO Multi-Page Site (Vercel)
+# Swan's Lawn & Landscaping — SEO Multi-Page Site (Vercel)
 
 ## Replace the logo
 Replace: `assets/logo.jpg` with your real logo (keep filename the same).
