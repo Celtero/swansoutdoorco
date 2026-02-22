@@ -37,7 +37,15 @@ img{max-width:100%; height:auto; display:block}
 .header{position:sticky; top:44px; z-index:40; background:rgba(10,15,12,.65); backdrop-filter: blur(12px); border-bottom:1px solid var(--line);}
 .header__inner{display:flex; align-items:center; justify-content:space-between; gap:18px; padding:14px 0}
 .brand{display:flex; align-items:center; gap:12px}
-.brand__logo{width:200px; max-height:64px; object-fit:contain; filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));}
+.brand__logo {
+  height: 72px;        /* was too small */
+  width: auto;
+  display: block;
+}
+
+.navbar {
+  padding: 18px 0;     /* gives the logo breathing room */
+}
 .nav{display:flex; gap:18px; align-items:center}
 .nav a{color:rgba(255,255,255,.86); font-weight:700; font-size:.98rem}
 .nav a:hover{color:#fff}
