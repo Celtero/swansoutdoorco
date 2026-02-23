@@ -416,3 +416,50 @@ input:focus, textarea:focus{border-color: rgba(123,217,143,.55); box-shadow: 0 0
 @media (max-width: 760px){
   .brand__logo{ height: 280px !important; }
 }
+
+
+/* ===== STRICT HEADER SPACING CONTROL ===== */
+
+/* Remove ALL vertical spacing from header rows */
+.topbar,
+.header__brandrow,
+.navbar {
+  margin: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Force exact 2px separation between logo row and adjacent rows */
+.header__brandrow {
+  padding: 0 !important;
+}
+
+.header__brandrow::before,
+.header__brandrow::after {
+  content: none !important;
+}
+
+/* Apply exact spacing using borders instead of margin collapse */
+.topbar {
+  border-bottom: 2px solid transparent !important;
+}
+
+.navbar {
+  border-top: 2px solid transparent !important;
+}
+
+/* Ensure logo is perfectly centered full viewport width */
+.header__brandrow.container {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* Prevent inline spacing artifacts */
+.brand__logo {
+  display: block !important;
+}
+
