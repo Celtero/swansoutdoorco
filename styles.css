@@ -346,28 +346,6 @@ input:focus, textarea:focus{border-color: rgba(123,217,143,.55); box-shadow: 0 0
   padding: 0 !important;
 }
 
-
-/* ===== Logo row: true full-viewport centering + zero vertical waste ===== */
-/* The HTML uses .container on the logo row; override it so the row spans the full viewport width. */
-.header__brandrow.container{
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 !important;
-}
-
-/* Remove all extra vertical padding above/below the logo while keeping perfect centering. */
-.header__brandrow{
-  padding: 0 !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-}
-
-/* Eliminate any accidental gaps caused by line-height or inline rendering in some browsers */
-.brand__logo{
-  display: block !important;
-}
-
 /* Keep sticky nav compact */
 .header__navrow{
   padding: 8px 0 !important;
@@ -418,48 +396,86 @@ input:focus, textarea:focus{border-color: rgba(123,217,143,.55); box-shadow: 0 0
 }
 
 
-/* ===== STRICT HEADER SPACING CONTROL ===== */
 
-/* Remove ALL vertical spacing from header rows */
-.topbar,
-.header__brandrow,
-.navbar {
+/* ====================================================================== */
+/* Swan's Header Hard Lock: true 600px logo row, true centering, 2px gaps */
+/* ====================================================================== */
+
+/* Kill any default document spacing that can create phantom gaps */
+html, body { margin: 0 !important; padding: 0 !important; }
+img { display: block; }
+
+/* Topbar: no extra spacing */
+.topbar { margin: 0 !important; padding: 0 !important; }
+
+/*
+  Header becomes a 3-row stack:
+  1) Topbar (separate element above)
+  2) Logo row (EXACTLY 600px tall)
+  3) Nav row (compact + sticky)
+  Row separation is controlled by header row-gap (2px) so margins can't collapse.
+*/
+.header{
   margin: 0 !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-/* Force exact 2px separation between logo row and adjacent rows */
-.header__brandrow {
   padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  row-gap: 2px !important; /* EXACT gap between logo row and nav row */
+  background: transparent !important;
 }
 
-.header__brandrow::before,
-.header__brandrow::after {
-  content: none !important;
+/* Logo row must be full viewport width and EXACT height */
+.header__brandrow{
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 600px !important;      /* EXACT row height */
+  min-height: 600px !important;
+  max-height: 600px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-/* Apply exact spacing using borders instead of margin collapse */
-.topbar {
-  border-bottom: 2px solid transparent !important;
-}
-
-.navbar {
-  border-top: 2px solid transparent !important;
-}
-
-/* Ensure logo is perfectly centered full viewport width */
-.header__brandrow.container {
+/* This row is currently also a .container — override container constraints */
+.header__brandrow.container{
   width: 100% !important;
   max-width: none !important;
   margin: 0 !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
 }
 
-/* Prevent inline spacing artifacts */
-.brand__logo {
-  display: block !important;
+/* The logo itself: EXACTLY 600px tall with no extra whitespace from line-height */
+.brand__logo{
+  height: 600px !important;
+  width: auto !important;
+  max-height: none !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+  object-fit: contain !important;
+}
+
+/* Nav row: compact, no extra borders/padding that inflate spacing */
+.header__navrow{
+  margin: 0 !important;
+  padding: 6px 0 !important;
+  border-top: 0 !important;      /* remove border that can look like extra gap */
+}
+
+/* Sticky behavior stays, but ensure it sits just under the topbar */
+.header__navrow{
+  position: sticky !important;
+  top: 44px !important; /* topbar height; adjust if you change topbar padding */
+  z-index: 45 !important;
+}
+
+/* Responsive logo scaling */
+@media (max-width: 960px){
+  .header__brandrow{ height: 420px !important; min-height: 420px !important; max-height: 420px !important; }
+  .brand__logo{ height: 420px !important; }
+}
+@media (max-width: 760px){
+  .header__brandrow{ height: 300px !important; min-height: 300px !important; max-height: 300px !important; }
+  .brand__logo{ height: 300px !important; }
 }
 
