@@ -360,3 +360,37 @@ input:focus, textarea:focus{border-color: rgba(123,217,143,.55); box-shadow: 0 0
 @media (max-width: 760px){
   .brand__logo{ height: 200px !important; }
 }
+
+
+
+/* ===== EXTREME LOGO SCALE + ZERO PADDING ===== */
+
+/* Remove ALL vertical spacing from header */
+.header,
+.header__brandrow {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* MASSIVE logo (50% larger again) */
+.brand__logo{
+  height: 600px !important;
+  width: auto !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+/* Keep sticky nav compact */
+.header__navrow{
+  padding: 6px 0 !important;
+}
+
+/* Tablet */
+@media (max-width: 960px){
+  .brand__logo{ height: 420px !important; }
+}
+
+/* Mobile */
+@media (max-width: 760px){
+  .brand__logo{ height: 280px !important; }
+}
