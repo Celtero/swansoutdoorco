@@ -321,3 +321,42 @@ input:focus, textarea:focus{border-color: rgba(123,217,143,.55); box-shadow: 0 0
   .brand__logo{ height: 150px !important; }
   .header__navrow{ top: 44px !important; }
 }
+
+
+
+/* ===== FINAL HEADER SCALE + PADDING FIX ===== */
+
+/* Remove excess vertical space */
+.header__brandrow{
+  padding: 4px 0 2px !important;
+  margin: 0 !important;
+}
+
+/* 50% larger logo */
+.brand__logo{
+  height: 420px !important;
+  width: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+
+/* Ensure header itself has no extra padding */
+.header{
+  padding: 0 !important;
+}
+
+/* Keep sticky nav compact */
+.header__navrow{
+  padding: 8px 0 !important;
+}
+
+/* Tablet */
+@media (max-width: 960px){
+  .brand__logo{ height: 300px !important; }
+}
+
+/* Mobile */
+@media (max-width: 760px){
+  .brand__logo{ height: 200px !important; }
+}
