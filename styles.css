@@ -480,3 +480,87 @@ html, body { margin: 0 !important; padding: 0 !important; }
   .header__brandrow{ height: 280px !important; min-height: 280px !important; max-height: 280px !important; }
   .brand__logo{ height: 280px !important; max-height: 280px !important; }
 }
+
+
+/* =========================================================
+   LOGO ROW: full-bleed centered + tight spacing + white oval
+   (Keeps nav row using normal container centering)
+   ========================================================= */
+
+/* Ensure the header stacks rows without extra "distribution" space */
+.header{
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;                 /* <-- exact gap between rows */
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Kill any inherited vertical spacing on the key rows */
+.topbar,
+.header__brandrow,
+.header__navrow{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Break ONLY the logo row out of the container so it centers to viewport width */
+.header__brandrow.container{
+  position: relative !important;
+  width: 100vw !important;
+  max-width: none !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+}
+
+/* Lock logo row height tightly */
+.header__brandrow{
+  height: 600px !important;
+  min-height: 600px !important;
+  max-height: 600px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important; /* prevents any stray overflow from creating visual gaps */
+}
+
+/* White oval behind the logo (outside is transparent / page background shows) */
+.header__brandrow::before{
+  content: "" !important;
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: clamp(520px, 70vw, 920px) !important;
+  height: clamp(260px, 38vw, 460px) !important;
+  background: #ffffff !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 18px 50px rgba(0,0,0,.35) !important;
+  z-index: 0 !important;
+}
+
+/* Logo sizing stays exactly 600px tall, always on top of oval */
+.brand__logo{
+  position: relative !important;
+  z-index: 1 !important;
+  height: 600px !important;
+  width: auto !important;
+  display: block !important;
+  margin: 0 !important;
+}
+
+/* IMPORTANT: keep nav row in the normal centered container */
+.header__navrow.container{
+  width: 100% !important;
+  max-width: 1120px !important; /* (your site uses 1120px container) */
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Keep the sticky nav compact (no extra vertical padding) */
+.nav{
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
