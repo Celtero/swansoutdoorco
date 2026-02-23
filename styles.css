@@ -157,26 +157,43 @@ input:focus, textarea:focus{border-color: rgba(123,217,143,.55); box-shadow: 0 0
 }
 
 
-/* ===== Swan's: HARD logo sizing (cannot be capped) ===== */
+/* ===== Swan's: BIG logo header ===== */
+.header__inner{
+  min-height: 150px !important;
+  padding: 24px 0 !important;
+}
+
 .brand__logo{
-  height: 96px !important;
+  height: 140px !important;
   width: auto !important;
   max-height: none !important;
   max-width: none !important;
   object-fit: contain !important;
 }
+
 .footer__logo{
-  height: 72px !important;
+  height: 90px !important;
   width: auto !important;
   max-height: none !important;
   object-fit: contain !important;
 }
-.header__inner{ min-height: 104px; }
+
+/* Tablet */
 @media (max-width: 960px){
-  .brand__logo{ height: 84px !important; }
-  .header__inner{ min-height: 96px; }
+  .brand__logo{
+    height: 110px !important;
+  }
+  .header__inner{
+    min-height: 120px !important;
+  }
 }
+
+/* Mobile */
 @media (max-width: 720px){
-  .brand__logo{ height: 70px !important; }
-  .header__inner{ min-height: 86px; }
+  .brand__logo{
+    height: 85px !important;
+  }
+  .header__inner{
+    min-height: 95px !important;
+  }
 }
