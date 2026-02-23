@@ -34,7 +34,7 @@ img{max-width:100%; height:auto; display:block}
 .dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.4)}
 .pill{display:inline-flex; align-items:center; padding:6px 10px; border:1px solid var(--line); border-radius:999px; font-size:.85rem; color:var(--muted); background:rgba(255,255,255,.03);}
 .pill--dark{background:rgba(0,0,0,.18); color:rgba(255,255,255,.84); border-color:rgba(255,255,255,.10)}
-.header{position:sticky; top:44px; z-index:40; background:rgba(10,15,12,.65); backdrop-filter: blur(12px); border-bottom:1px solid var(--line);}
+.header{position:relative; z-index:40; background:transparent; border-bottom:none;}
 .header__inner{display:flex; align-items:center; justify-content:space-between; gap:18px; padding:14px 0}
 .brand{display:flex; align-items:center; gap:12px}
 .brand__logo{width:200px; object-fit:contain; filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));}
@@ -229,4 +229,95 @@ input:focus, textarea:focus{border-color: rgba(123,217,143,.55); box-shadow: 0 0
     flex-direction: column;
     gap: 14px;
   }
+}
+
+
+/* ===== Swan's Split Header v2 (HUGE logo + apply everywhere) ===== */
+.header__brandrow{
+  padding: 48px 0 26px !important;
+}
+.brand__logo{
+  height: 360px !important; /* BIG */
+  width: auto !important;
+  max-height: none !important;
+  max-width: none !important;
+  object-fit: contain !important;
+}
+
+/* Keep nav row tight so logo feels dominant */
+.header__navrow{
+  padding: 14px 0 !important;
+}
+.header__navrow .nav{
+  gap: 22px !important;
+}
+.header__navrow{
+  justify-content: space-between !important;
+}
+
+/* Tablet */
+@media (max-width: 960px){
+  .brand__logo{ height: 260px !important; }
+  .header__brandrow{ padding: 34px 0 18px !important; }
+}
+/* Mobile */
+@media (max-width: 720px){
+  .brand__logo{ height: 170px !important; }
+  .header__brandrow{ padding: 26px 0 14px !important; }
+}
+
+
+
+/* ===== Swan's Header: big logo at top, compact sticky nav on scroll ===== */
+
+/* Make the main header non-sticky so it doesn't eat screen space */
+.header{
+  position: relative !important;
+  top: auto !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border-bottom: none !important;
+}
+
+/* Logo row: bigger, but not absurd */
+.header__brandrow{
+  padding: 22px 0 14px !important;
+}
+.brand__logo{
+  height: 280px !important;   /* Bigger logo */
+  width: auto !important;
+  object-fit: contain !important;
+  max-height: none !important;
+}
+
+/* Nav row: THIS is what stays sticky */
+.header__navrow{
+  position: sticky !important;
+  top: 44px !important; /* below topbar */
+  z-index: 45 !important;
+  background: rgba(10,15,12,.72) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid var(--line) !important;
+  border-top: 1px solid rgba(255,255,255,.08) !important;
+  padding: 12px 0 !important;
+}
+
+/* Tighten nav + buttons so sticky bar is compact */
+.header__navrow .nav a{
+  font-size: .98rem !important;
+}
+.header__cta .btn{
+  padding: 10px 14px !important;
+}
+
+/* Tablet */
+@media (max-width: 960px){
+  .brand__logo{ height: 210px !important; }
+  .header__brandrow{ padding: 18px 0 12px !important; }
+}
+
+/* Mobile */
+@media (max-width: 760px){
+  .brand__logo{ height: 150px !important; }
+  .header__navrow{ top: 44px !important; }
 }
