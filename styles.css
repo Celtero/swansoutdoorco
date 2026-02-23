@@ -35,9 +35,9 @@ img{max-width:100%; height:auto; display:block}
 .pill{display:inline-flex; align-items:center; padding:6px 10px; border:1px solid var(--line); border-radius:999px; font-size:.85rem; color:var(--muted); background:rgba(255,255,255,.03);}
 .pill--dark{background:rgba(0,0,0,.18); color:rgba(255,255,255,.84); border-color:rgba(255,255,255,.10)}
 .header{position:sticky; top:44px; z-index:40; background:rgba(10,15,12,.65); backdrop-filter: blur(12px); border-bottom:1px solid var(--line);}
-.header__inner{display:flex; align-items:center; justify-content:space-between; gap:18px; padding:14px 0}
+.header__inner{display:flex; align-items:center; justify-content:space-between; gap:18px; padding:18px 0; min-height:112px}
 .brand{display:flex; align-items:center; gap:12px}
-.brand__logo{width:200px; max-height:64px; object-fit:contain; filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));}
+.brand__logo{height:96px; width:auto; max-height:none; max-width:none; object-fit:contain; filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));}
 .nav{display:flex; gap:18px; align-items:center}
 .nav a{color:rgba(255,255,255,.86); font-weight:700; font-size:.98rem}
 .nav a:hover{color:#fff}
@@ -144,14 +144,28 @@ input:focus, textarea:focus{border-color: rgba(123,217,143,.55); box-shadow: 0 0
   .sticky-call{display:block}
 }
 
-
-/* ===== Swan's: logo sizing override (premium header) ===== */
+/* ===============================
+   Swan's header logo — FINAL override
+   Fixes tiny logo caused by header/link constraints
+   =============================== */
+.header{overflow:visible;}
+.brand{display:flex; align-items:center; gap:12px; min-width:260px;}
+.brand a{display:flex; align-items:center;}
 .brand__logo{
-  height: 88px;
-  width: auto;
-  display: block;
-  object-fit: contain;
+  height: 104px !important;
+  width: auto !important;
+  max-height: none !important;
+  max-width: none !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 960px){
+  .header__inner{padding:14px 0; min-height:92px;}
+  .brand{min-width:220px;}
+  .brand__logo{height: 84px !important;}
 }
 @media (max-width: 720px){
-  .brand__logo{ height: 64px; }
+  .header__inner{padding:12px 0; min-height:80px;}
+  .brand{min-width:180px;}
+  .brand__logo{height: 64px !important;}
 }
