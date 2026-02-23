@@ -157,43 +157,76 @@ input:focus, textarea:focus{border-color: rgba(123,217,143,.55); box-shadow: 0 0
 }
 
 
-/* ===== Swan's: BIG logo header ===== */
-.header__inner{
-  min-height: 150px !important;
-  padding: 24px 0 !important;
+/* ===== Swan's: HARD logo sizing (cannot be capped) ===== */
+.brand__logo{
+  height: 96px !important;
+  width: auto !important;
+  max-height: none !important;
+  max-width: none !important;
+  object-fit: contain !important;
+}
+.footer__logo{
+  height: 72px !important;
+  width: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+}
+.header__inner{ min-height: 104px; }
+@media (max-width: 960px){
+  .brand__logo{ height: 84px !important; }
+  .header__inner{ min-height: 96px; }
+}
+@media (max-width: 720px){
+  .brand__logo{ height: 70px !important; }
+  .header__inner{ min-height: 86px; }
 }
 
-.brand__logo{
-  height: 140px !important;
+
+
+/* ===== Swan's Split Header Layout (Large Logo) ===== */
+
+.header {
+  padding: 0;
+}
+
+.header__brandrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 36px 0 24px;
+}
+
+.brand__logo {
+  height: 240px !important;
   width: auto !important;
   max-height: none !important;
   max-width: none !important;
   object-fit: contain !important;
 }
 
-.footer__logo{
-  height: 90px !important;
-  width: auto !important;
-  max-height: none !important;
-  object-fit: contain !important;
+.header__navrow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
 }
 
 /* Tablet */
-@media (max-width: 960px){
-  .brand__logo{
-    height: 110px !important;
-  }
-  .header__inner{
-    min-height: 120px !important;
+@media (max-width: 960px) {
+  .brand__logo {
+    height: 180px !important;
   }
 }
 
 /* Mobile */
-@media (max-width: 720px){
-  .brand__logo{
-    height: 85px !important;
+@media (max-width: 720px) {
+  .brand__logo {
+    height: 130px !important;
   }
-  .header__inner{
-    min-height: 95px !important;
+
+  .header__navrow {
+    flex-direction: column;
+    gap: 14px;
   }
 }
