@@ -564,3 +564,31 @@ html, body { margin: 0 !important; padding: 0 !important; }
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
+
+
+/* =========================================================
+   FINAL OVERRIDE: Rounded-rectangle backdrop + logo fits inside
+   ========================================================= */
+
+/* Backdrop is a rounded rectangle (NOT an oval) */
+.header__brandrow::before{
+  width: clamp(640px, 78vw, 980px) !important;
+  height: clamp(340px, 42vw, 520px) !important;
+  border-radius: 56px !important;      /* rounded rectangle */
+}
+
+/* Keep the LOGO ROW exactly 600px tall */
+.header__brandrow{
+  height: 600px !important;
+  min-height: 600px !important;
+  max-height: 600px !important;
+}
+
+/* Fit the logo comfortably INSIDE the rounded rectangle */
+.brand__logo{
+  height: auto !important;
+  width: auto !important;
+  max-height: 520px !important;        /* fits within 600px row + leaves breathing room */
+  max-width: min(920px, 92vw) !important;
+  object-fit: contain !important;
+}
