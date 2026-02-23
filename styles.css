@@ -35,10 +35,9 @@ img{max-width:100%; height:auto; display:block}
 .pill{display:inline-flex; align-items:center; padding:6px 10px; border:1px solid var(--line); border-radius:999px; font-size:.85rem; color:var(--muted); background:rgba(255,255,255,.03);}
 .pill--dark{background:rgba(0,0,0,.18); color:rgba(255,255,255,.84); border-color:rgba(255,255,255,.10)}
 .header{position:sticky; top:44px; z-index:40; background:rgba(10,15,12,.65); backdrop-filter: blur(12px); border-bottom:1px solid var(--line);}
-.header__inner{display:flex; align-items:center; justify-content:space-between; gap:18px; padding:16px 0; min-height:104px}
+.header__inner{display:flex; align-items:center; justify-content:space-between; gap:18px; padding:14px 0; min-height:86px}
 .brand{display:flex; align-items:center; gap:12px}
-.brand__logo-wrap{height:96px; display:flex; align-items:center;}
-.brand__logo{height:100%; width:auto; max-height:none; max-width:none; object-fit:contain; filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));}
+.brand__logo{height:64px; width:auto; max-height:none; max-width:none; object-fit:contain; filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));}
 .nav{display:flex; gap:18px; align-items:center}
 .nav a{color:rgba(255,255,255,.86); font-weight:700; font-size:.98rem}
 .nav a:hover{color:#fff}
@@ -129,14 +128,17 @@ input:focus, textarea:focus{border-color: rgba(123,217,143,.55); box-shadow: 0 0
 .breadcrumbs a{color:rgba(255,255,255,.86)}
 .breadcrumbs span{opacity:.65}
 @media (max-width: 960px){
+  .header__inner{min-height:76px}
   .hero__grid{grid-template-columns:1fr; gap:18px}
   .cards{grid-template-columns: repeat(2, 1fr)}
   .steps{grid-template-columns:1fr}
   .contact{grid-template-columns:1fr}
   .grid2{grid-template-columns:1fr}
-  .brand__logo-wrap{height:78px}
+  .brand__logo{height:56px}
 }
 @media (max-width: 760px){
+  .header__inner{min-height:72px}
+  .brand__logo{height:52px}
   .nav{display:none}
   .header__cta{display:none}
   .navbtn{display:flex}
@@ -144,14 +146,5 @@ input:focus, textarea:focus{border-color: rgba(123,217,143,.55); box-shadow: 0 0
   .section__head{flex-direction:column; align-items:flex-start}
   .sticky-call{display:block}
 }
-/* ===============================
-   Header logo sizing (wrapper-driven)
-   =============================== */
-@media (max-width: 960px){
-  .brand__logo-wrap{height:76px;}
-  .header__inner{min-height:92px;}
-}
-@media (max-width: 720px){
-  .brand__logo-wrap{height:58px;}
-  .header__inner{min-height:78px;}
-}
+
+
