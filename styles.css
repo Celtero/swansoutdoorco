@@ -346,6 +346,28 @@ input:focus, textarea:focus{border-color: rgba(123,217,143,.55); box-shadow: 0 0
   padding: 0 !important;
 }
 
+
+/* ===== Logo row: true full-viewport centering + zero vertical waste ===== */
+/* The HTML uses .container on the logo row; override it so the row spans the full viewport width. */
+.header__brandrow.container{
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+/* Remove all extra vertical padding above/below the logo while keeping perfect centering. */
+.header__brandrow{
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* Eliminate any accidental gaps caused by line-height or inline rendering in some browsers */
+.brand__logo{
+  display: block !important;
+}
+
 /* Keep sticky nav compact */
 .header__navrow{
   padding: 8px 0 !important;
