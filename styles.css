@@ -410,7 +410,7 @@ input:focus, textarea:focus{border-color: rgba(123,217,143,.55); box-shadow: 0 0
 
 html, body{ margin: 0; padding: 0; }
 
-.site-header{position:sticky;top:0;z-index:1000;background:#0b0f0d;}
+.site-header{ position: sticky; top: 0; z-index: 1000; width: 100%; }
 
 .topbar{
   background: rgba(0,0,0,0.35);
