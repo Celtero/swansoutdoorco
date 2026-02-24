@@ -592,3 +592,31 @@ html, body { margin: 0 !important; padding: 0 !important; }
   max-width: min(920px, 92vw) !important;
   object-fit: contain !important;
 }
+
+
+/* =========================================================
+   FINAL SIZE ADJUSTMENT — 50% smaller logo + backdrop
+   ========================================================= */
+
+/* Rounded rectangle backdrop (50% smaller) */
+.header__brandrow::before{
+  width: clamp(320px, 39vw, 490px) !important;
+  height: clamp(170px, 21vw, 260px) !important;
+  border-radius: 40px !important;
+}
+
+/* Keep row height fixed */
+.header__brandrow{
+  height: 600px !important;
+  min-height: 600px !important;
+  max-height: 600px !important;
+}
+
+/* Logo scales to fit inside new rectangle */
+.brand__logo{
+  height: auto !important;
+  width: auto !important;
+  max-height: 260px !important;
+  max-width: min(460px, 80vw) !important;
+  object-fit: contain !important;
+}
