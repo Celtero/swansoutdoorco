@@ -513,3 +513,10 @@ html, body{ margin: 0; padding: 0; }
 /* Hide any previous oversized header rows if they exist */
 .header__brandrow, .navbar, .header__navrow{ display: none !important; }
 .brand__logo{ max-height: 90px !important; }
+
+
+/* =========================================================
+   Remove any legacy/duplicate headers (safety net)
+   ========================================================= */
+header:not(.site-header){ display:none !important; }
+.topbar + .topbar{ display:none !important; }
